@@ -1,0 +1,73 @@
+* {
+    padding: 0%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Configurações para deixar o coração no meio da pagina */
+body {
+    width: 95%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #1a1a1a;
+}
+
+.heart {
+    width: 100px;
+    height: 160px;
+
+    background-color: #c11c1c;
+    border-radius: 15px;
+
+    /* Diz por onde vai começar a transição, dando o movimento de origem*/
+    transform-origin: right bottom;
+    /* Para o movimento de rotação ficar mais suave*/
+    transition: 0.5s ease-in-out;
+
+    /* Para que o pseudo codigo funcione é necessario deixar o position relative no elemento pai(.heart)
+    e absolute no elemento filho (.heart::after) */
+    position: relative;
+}
+
+.heart:hover{
+    /* Faz com que o coração gire quando o mouse esta em cima */
+    transform: rotate(45deg);
+
+    /* Deixar as bordas arredondadas quando estiver com o hover */
+    border-top-left-radius: 50px ;
+    border-top-right-radius: 50px ;
+}
+
+.heart::after{
+    /* Content vazio para que ele possa funcionar */
+    /* Função content serve para gerar conteúdo em um elemento, usada em pseudoelementos(after e before) */
+    content: '';
+
+    /* Mesmo tamanho da tag pai*/
+    width: 100%;
+    height: 100%;
+
+    /* Fazer com que o after tenha como origem o canto esquerdo do lado pai do nosso coração */
+    transform-origin: left bottom;
+
+    background-color:#b90000;
+    border-radius: 15px;
+
+    /*  */
+    position: absolute;
+}
+
+.heart:hover:after{
+    /* Fazer com que ele rotacione junto com o elemento pai mas em uma direção contraria quando o mouse estiver em cima */
+    /* Translate para que o coração desça no eixo Y tendo linhas imaginarias como base */
+    transform: rotate(-90deg) translateY(100px);
+    transition: 0.5s ease-in-out;
+
+    /* Deixar as bordas arredondadas quando estiver com o hover */
+    border-top-left-radius: 50px ;
+    border-top-right-radius: 50px ;
+}

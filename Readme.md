@@ -1,0 +1,1 @@
+Esse projeto foi criado apenas para que eu pudesse começar a entender como funciona o pseudoelemento after.
